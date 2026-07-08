@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .css-btn {
+            padding: 10px 15px;
+            border: none;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+
+        .bg-color {
+            background-color: #48ff00;
+            color: rgb(0, 0, 0);
+        }
+
+        .css-input {
+            padding: 10px;
+        }
+
+        .js-calculate {
+            padding: 12px 15px;
+            border: none;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>YouTube Subscribe Button</h3>
+    <button class="js-btn css-btn">Subscribe</button>
+    <h3>Amazon Shipping Calculator</h3>
+    <input type="number" placeholder="Cost of order" class="js-input css-input">
+    <button class="js-calculate">Calculate</button>
+    <p class="js-result"></p>
+
+    <script>
+        document.querySelector('.js-calculate').addEventListener('click', calculateShipping);
+        function calculateShipping() {
+            let inputEl = document.querySelector('.js-input');
+            let cost = Number(inputEl.value);
+            let Cost = 0;
+            if (cost <= 40) {
+                cost += 10;
+            }
+            document.querySelector('.js-result').innerHTML = `The shipping cost is $${cost}`;
+        }
+        document.querySelector('.js-btn').addEventListener('click', subscribe);
+        function subscribe() {
+            let btnElement = document.querySelector('.js-btn');
+            if (btnElement.innerText === 'Subscribe') {
+                btnElement.innerHTML = 'Subscribed';
+                btnElement.classList.add('bg-color');
+            } else {
+                btnElement.innerHTML = 'Subscribe';
+                btnElement.classList.remove('bg-color');
+            }
+        }
+    </script>
+</body>
+
+</html>
